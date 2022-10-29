@@ -1,12 +1,11 @@
 package driver;
 
-import transport.Competing;
 import transport.PassangerCar;
 
-public class PassangerCarDriver <T extends PassangerCar & Competing> extends Driver {
+public class PassangerCarDriver <T extends PassangerCar> extends Driver {
     private String DRIVERS_CATEGORY="B";
 
-    private PassangerCar car;
+    private T car;
 
     public PassangerCarDriver(String fullName, boolean driversPermit, int experience, T car) {
         super(fullName, driversPermit, experience);

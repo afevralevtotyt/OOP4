@@ -1,11 +1,10 @@
 package driver;
 
 import transport.Bus;
-import transport.Competing;
 
-public class BusDriver <T extends Bus & Competing> extends Driver {
+public class BusDriver <T extends Bus> extends Driver {
     private final String DRIVERS_CATEGORY="D";
-    private Bus car;
+    private T car;
     public BusDriver(String fullName, boolean driversPermit, int experience, T car) {
         super(fullName, driversPermit, experience);
         this.car = car;
@@ -31,7 +30,7 @@ public class BusDriver <T extends Bus & Competing> extends Driver {
         return DRIVERS_CATEGORY;
     }
 
-    public void setCar(Bus car) {
+    public void setCar(T car) {
         this.car = car;
     }
 

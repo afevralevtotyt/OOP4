@@ -1,9 +1,8 @@
 package driver;
 
-import transport.Competing;
 import transport.Truck;
 
-public class TruckDriver<T extends Truck & Competing> extends Driver  {
+public class TruckDriver<T extends Truck> extends Driver  {
     private String DRIVERS_CATEGORY="C";
 
     private T car;
