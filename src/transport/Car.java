@@ -1,26 +1,26 @@
 package transport;
 import utilits.Utilits;
 public class Car {
-    private final String BRAND;
-    private final String MODEL;
-    private final double ENGINE_VOLUME;
+    private final String brand;
+    private final String model;
+    private final double engineVolume;
 
     public Car(String brand, String model, double engine_volume) {
-        BRAND = Utilits.checkValidStringOrDefault(brand, "TOYOTA");
-        MODEL = Utilits.checkValidStringOrDefault(model, "default");
-        ENGINE_VOLUME = Math.max(engine_volume, 0);
+        this.brand = Utilits.checkValidStringOrDefault(brand, "TOYOTA");
+        this.model = Utilits.checkValidStringOrDefault(model, "default");
+        engineVolume = Math.max(engine_volume, 0);
     }
 
-    public String getBRAND() {
-        return BRAND;
+    public String getBrand() {
+        return brand;
     }
 
-    public String getMODEL() {
-        return MODEL;
+    public String getModel() {
+        return model;
     }
 
-    public double getENGINE_VOLUME() {
-        return ENGINE_VOLUME;
+    public double getEngineVolume() {
+        return engineVolume;
     }
 
     public void start(){
@@ -34,8 +34,8 @@ public class Car {
     public String toString() {
         return "Автомобиль класса: " +
                 this.getClass()+
-                ", марки: " + BRAND +
-                ", модель: " + MODEL +
-                ", объем двигателя " + ENGINE_VOLUME;
+                ", марки: " + brand +
+                ", модель: " + model +
+                ", объем двигателя " + engineVolume;
     }
 }

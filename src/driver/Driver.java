@@ -5,19 +5,19 @@ import utilits.Utilits;
 
 public abstract class Driver{
 
-    private final String FULL_NAME;
+    private final String fullName;
     private boolean driversPermit;
     private int experience;
 
 
     public Driver(String fullName, boolean driversPermit, int experience) {
-        this.FULL_NAME = Utilits.checkValidStringOrDefault(fullName, "Безымянный водитель");
+        this.fullName = Utilits.checkValidStringOrDefault(fullName, "Безымянный водитель");
         this.experience = Math.max(0, experience);
         setDriversPermit(driversPermit);
     }
 
-    public String getFULL_NAME() {
-        return FULL_NAME;
+    public String getFullName() {
+        return fullName;
     }
 
     public boolean isDriversPermit() {

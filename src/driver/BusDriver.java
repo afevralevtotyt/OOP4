@@ -37,7 +37,7 @@ public class BusDriver <T extends Bus & Competing> extends Driver {
 
     @Override
     public String toString() {
-        return "Водитель " + this.getFULL_NAME() +
+        return "Водитель " + this.getFullName() +
                 " управляет автомобилем "+ getCar() + " и будет участвовать в заезде ";
     }
 
