@@ -3,6 +3,8 @@ package driver;
 import transport.Truck;
 
 public class TruckDriver<T extends Truck> extends Driver  {
+
+
     private String DRIVERS_CATEGORY="C";
 
     private T car;

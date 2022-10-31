@@ -1,6 +1,35 @@
 package transport;
 
 public class PassangerCar extends Car implements Competing {
+
+    public enum BodyType {SEDAN("Седан"),
+        HATCHBACK("Хетчбек"),
+        COUPE("Купе"),
+        ESTATE_CAR("Универсал"),
+        SUV("Внедорожник"),
+        CROSSOVER("Кроссовер"),
+        PICKUP("Пикап"),
+        VAN("Фургон"),
+        MINIVAN("Минивэн");
+
+        private String bodyTypeRu;
+        public static void determineCarType (PassangerCar car){
+            if (car.bodyType!=null){
+                System.out.println(car.bodyType.bodyTypeRu);}
+            else {
+                System.out.println("Недостаточно данных по авто");
+            }
+        }
+        BodyType(String bodyTypeRu) {
+            this.bodyTypeRu = bodyTypeRu;
+        }
+    }
+
+    private BodyType bodyType;
+    public PassangerCar(String brand, String model, double engine_volume, BodyType bodyType) {
+        super(brand, model, engine_volume);
+        this.bodyType = bodyType;
+    }
     public PassangerCar(String brand, String model, double engine_volume) {
         super(brand, model, engine_volume);
     }
@@ -32,5 +61,7 @@ public class PassangerCar extends Car implements Competing {
 
     }
 
-
+    public BodyType getBodyType() {
+        return bodyType;
+    }
 }
