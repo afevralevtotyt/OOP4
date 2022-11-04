@@ -54,6 +54,17 @@ public class Truck extends Car implements Competing{
 
     }
 
+    @Override
+    public boolean getDiagnosed() {
+        System.out.println("Грузовой автомобиль "+ this.getModel() +" на диагностике");
+        if(super.getDiagnosed() == true){
+            return true;}else{ try {
+            throw new RuntimeException("Автомобиль не прошел диагностику");}
+        catch (RuntimeException e){
+            System.out.println(e.getMessage()); return false;
+        }}
+    }
+
     public LoadCapacity getLoadCapacity() {
         return loadCapacity;
     }

@@ -3,13 +3,13 @@ package driver;
 import transport.PassangerCar;
 
 public class PassangerCarDriver <T extends PassangerCar> extends Driver {
-    private String DRIVERS_CATEGORY="B";
 
     private T car;
 
-    public PassangerCarDriver(String fullName, boolean driversPermit, int experience, T car) {
-        super(fullName, driversPermit, experience);
+    public PassangerCarDriver(String fullName, boolean driversPermit, int experience, T car, String driversCategory) {
+        super(fullName, driversPermit, experience, driversCategory);
         this.car = car;
+
     }
 
     public void startMovement(T car) {
@@ -28,9 +28,9 @@ public class PassangerCarDriver <T extends PassangerCar> extends Driver {
         this.car.pitStop();
     }
 
-    public String getDRIVERS_CATEGORY() {
-        return DRIVERS_CATEGORY;
-    }
+
+
+
 
     @Override
     public String toString() {

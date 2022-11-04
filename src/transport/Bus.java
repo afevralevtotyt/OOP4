@@ -58,6 +58,12 @@ public class Bus extends Car implements Competing{
     }
 
     @Override
+    public boolean getDiagnosed() {
+        System.out.println("Автобус "+ getModel() +" в диагностике не нуждается");
+        return true;
+
+    }
+    @Override
     public void maxSpeed() {
         System.out.println("Максимальная скорость автобуса 140 км/ч");
 

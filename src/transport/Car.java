@@ -38,4 +38,14 @@ public class Car {
                 ", модель: " + model +
                 ", объем двигателя " + engineVolume;
     }
+  public boolean getDiagnosed(){
+        if(!brand.isEmpty()&&brand!=null&&!brand.isBlank()&&!model.isEmpty()&&model!=null&&!model.isBlank()&&engineVolume!=0){
+         return true;
+      } else {
+            return false;
+        }
+
+
+  }
+
 }

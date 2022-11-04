@@ -2,13 +2,14 @@ import driver.BusDriver;
 import driver.PassangerCarDriver;
 import driver.TruckDriver;
 import transport.Bus;
+import transport.Car;
 import transport.PassangerCar;
 import transport.Truck;
 
 public class Main {
     public static void main(String[] args) {
 
-        PassangerCar lexusGX300 = new PassangerCar("Lexus", "GX300", 3.0, PassangerCar.BodyType.SEDAN);
+        PassangerCar lexusGX300 = new PassangerCar("Lexus", "GX300", 0.0, PassangerCar.BodyType.SEDAN);
         PassangerCar toyotaCorolla = new PassangerCar("Toyota", "Corolla", 1.8, PassangerCar.BodyType.SEDAN);
         PassangerCar nissanJuke = new PassangerCar("Nissan", "Juke", 2.0, PassangerCar.BodyType.CROSSOVER);
         PassangerCar hondaCivic = new PassangerCar("Honda", "Civic", 1.8, PassangerCar.BodyType.SEDAN);
@@ -34,14 +35,17 @@ public class Main {
         System.out.println(mercedesViano);
         System.out.println(kia);
 
-        BusDriver<Bus> fedor=new BusDriver<>("Иванов Федор Никитич", true, 10, zaz);
+        BusDriver<Bus> fedor=new BusDriver<>("Иванов Федор Никитич", true, 10, zaz, "D");
         fedor.refuel(zaz);
-        PassangerCarDriver<PassangerCar> dmitry =new PassangerCarDriver<>("Петров Дмитрий Анатольевич", true, 22, lexusGX300);
+        PassangerCarDriver<PassangerCar> dmitry =new PassangerCarDriver<>("Петров Дмитрий Анатольевич", true, 22, lexusGX300, "B");
         dmitry.refuel(lexusGX300);
-        TruckDriver<Truck> mike = new TruckDriver<>("Михаил Иванович Ломоносов", true, 19, volvo);
+        TruckDriver<Truck> mike = new TruckDriver<>("Михаил Иванович Ломоносов", true, 19, volvo, "C");
         System.out.println(mike);
         Truck.LoadCapacity.determineCarType(bmw);
         Bus.CapacityType.determineCarType(kia);
-
+        Car[] carArray = {lexusGX300, toyotaCorolla, nissanJuke, hondaCivic, kamaz, volvo, mercedes, bmw, paz,zaz, mercedesViano, kia};
+        for (Car car: carArray) {
+            System.out.println(car.getDiagnosed());
+        }
 
     }}
