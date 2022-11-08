@@ -9,6 +9,8 @@ import transport.Truck;
 public class Main {
     public static void main(String[] args) {
 
+
+
         PassangerCar lexusGX300 = new PassangerCar("Lexus", "GX300", 0.0, PassangerCar.BodyType.SEDAN);
         PassangerCar toyotaCorolla = new PassangerCar("Toyota", "Corolla", 1.8, PassangerCar.BodyType.SEDAN);
         PassangerCar nissanJuke = new PassangerCar("Nissan", "Juke", 2.0, PassangerCar.BodyType.CROSSOVER);
@@ -33,7 +35,7 @@ public class Main {
         System.out.println(paz);
         System.out.println(zaz);
         System.out.println(mercedesViano);
-        System.out.println(kia);
+
 
         BusDriver<Bus> fedor=new BusDriver<>("Иванов Федор Никитич", true, 10, zaz, "D");
         fedor.refuel(zaz);
