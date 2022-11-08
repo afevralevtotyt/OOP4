@@ -3,30 +3,9 @@ package transport;
 public class Bus extends Car implements Competing{
 
 
-    public enum CapacityType {
-        ESPECIALLY_SMALL("<10 мест"),
-        SMALL("<25 мест"),
-        AVERAGE("40-50 мест"),
-        BIG("60-80 мест"),
-        ESPECIALLY_BIG("100-120 мест");
-    private String capacity;
 
-        CapacityType(String capacity) {
-            this.capacity = capacity;
-        }
+    String CATEGORY = "D";
 
-        public static void determineCarType (Bus car){
-            if (car.capacityType!=null){
-                System.out.println(car.capacityType.capacity);}
-            else {
-                System.out.println("Недостаточно данных по авто");
-            }
-        }
-    }
-
-    public CapacityType getCapacityType() {
-        return capacityType;
-    }
 
     private CapacityType capacityType;
     public Bus(String brand, String model, double engine_volume, CapacityType capacityType) {
@@ -36,7 +15,17 @@ public class Bus extends Car implements Competing{
     public Bus(String brand, String model, double engine_volume) {
         super(brand, model, engine_volume);
     }
+    public CapacityType getCapacityType() {
+        return capacityType;
+    }
+    public String getCapacity(){
+        if (capacityType!=null){
+            return capacityType.getCapacity();}
+        else {
+            return "Недостаточно данных";
+        }
 
+    }
     @Override
     public void start() {
         System.out.println("Slow start");;
@@ -53,8 +42,7 @@ public class Bus extends Car implements Competing{
 
     @Override
     public void bestLapTime() {
-        System.out.println("Лучшее время круга автобуса 5 минут");
-
+        System.out.println("Лучшее времмя круга " +(10/this.maxSpeed()));
     }
 
     @Override
@@ -64,8 +52,14 @@ public class Bus extends Car implements Competing{
 
     }
     @Override
-    public void maxSpeed() {
+    public int maxSpeed() {
         System.out.println("Максимальная скорость автобуса 140 км/ч");
+        return 140;
 
+    }
+
+    @Override
+    public String getCATEGORY() {
+        return CATEGORY;
     }
 }

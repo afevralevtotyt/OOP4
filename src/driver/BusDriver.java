@@ -2,38 +2,31 @@ package driver;
 
 import transport.Bus;
 
-public class BusDriver <T extends Bus> extends Driver {
+public class BusDriver extends Driver<Bus> {
     private String driversCategory ="D";
-    private T car;
-    public BusDriver(String fullName, boolean driversPermit, int experience, T car, String driversCategory) {
-        super(fullName, driversPermit, experience,driversCategory);
-        this.car = car;
-
+    public BusDriver(String fullName, boolean driversPermit, int experience, Bus car, String driversCategory) {
+        super(fullName, driversPermit, experience, driversCategory, car);
     }
-
-    public void startMovement(T car) {
+    public void startMovement(Bus car) {
         car.start();
     }
 
-    public void stopMovement(T car) {
+    public void stopMovement(Bus car) {
         car.finish();
     }
 
-    public void refuel(T car) {
+    public void refuel(Bus car) {
         car.pitStop();
     }
 
     public Bus getCar() {
-        return car;
+        return super.getCar();
     }
 
     public String getDriversCategory() {
         return driversCategory;
     }
 
-    public void setCar(T car) {
-        this.car = car;
-    }
 
     public void setDriversCategory(String driversCategory) {
         try{

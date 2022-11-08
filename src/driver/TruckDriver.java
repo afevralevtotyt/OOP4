@@ -1,37 +1,38 @@
 package driver;
 
+import transport.Car;
 import transport.Truck;
 
-public class TruckDriver<T extends Truck> extends Driver  {
+public class TruckDriver extends Driver<Truck>  {
 
 
     private String driversCategory ="C";
 
-    private T car;
-    public TruckDriver(String fullName, boolean driversPermit, int experience, T car, String driversCategory) {
-        super(fullName, driversPermit, experience,driversCategory);
-        this.car = car;
+
+    public TruckDriver(String fullName, boolean driversPermit, int experience, Truck car, String driversCategory) {
+        super(fullName, driversPermit, experience,driversCategory, car);
+
 
     }
 
-    public void startMovement(T car) {
-        this.car.start();
+    public void startMovement(Truck car) {
+        this.start();
     }
 
-    public void stopMovement(T car) {
-        this.car.finish();
+    public void stopMovement(Truck car) {
+        this.finish();
     }
 
-    public void refuel(T car) {
-        this.car.pitStop();
+    public void refuel(Truck car) {
+        this.refuel();
     }
 
     public String getDriversCategory() {
         return driversCategory;
     }
 
-    public T getCar() {
-        return car;
+    public Truck getCar() {
+        return super.getCar();
     }
 
 

@@ -1,36 +1,30 @@
 package transport;
 
-public class PassangerCar extends Car implements Competing {
+import driver.Driver;
+import mechanic.Mechanic;
+import sponsor.Sponsor;
 
-    public enum BodyType {SEDAN("Седан"),
-        HATCHBACK("Хетчбек"),
-        COUPE("Купе"),
-        ESTATE_CAR("Универсал"),
-        SUV("Внедорожник"),
-        CROSSOVER("Кроссовер"),
-        PICKUP("Пикап"),
-        VAN("Фургон"),
-        MINIVAN("Минивэн");
+import java.util.LinkedList;
+import java.util.List;
 
-        private String bodyTypeRu;
-        public static void determineCarType (PassangerCar car){
-            if (car.bodyType!=null){
-                System.out.println(car.bodyType.bodyTypeRu);}
-            else {
-                System.out.println("Недостаточно данных по авто");
-            }
-        }
-        BodyType(String bodyTypeRu) {
-            this.bodyTypeRu = bodyTypeRu;
-        }
-    }
+public class PassengerCar extends Car implements Competing {
+
+    String CATEGORY="B";
 
     private BodyType bodyType;
-    public PassangerCar(String brand, String model, double engine_volume, BodyType bodyType) {
+
+    private Driver driver;
+
+    private List<Sponsor> sponsorList;
+    public PassengerCar(String brand, String model, double engine_volume, BodyType bodyType) {
         super(brand, model, engine_volume);
         this.bodyType = bodyType;
+        this.driver = driver;
+        this.sponsorList = new LinkedList<>();
     }
-    public PassangerCar(String brand, String model, double engine_volume) {
+
+
+    public PassengerCar(String brand, String model, double engine_volume) {
         super(brand, model, engine_volume);
     }
 
@@ -56,9 +50,14 @@ public class PassangerCar extends Car implements Competing {
     }
 
     @Override
-    public void maxSpeed() {
+    public int maxSpeed() {
         System.out.println("Максимальная скорость лекгового автомобиля 200 км/ч");
+return 200;
+    }
 
+    @Override
+    public String getCATEGORY() {
+        return CATEGORY;
     }
 
     @Override
@@ -71,7 +70,12 @@ public class PassangerCar extends Car implements Competing {
             System.out.println(e.getMessage()); return false;
         }}
     }
-    public BodyType getBodyType() {
-        return bodyType;
-    }
+    public String getBodyType() {
+        if (bodyType != null) {
+            return bodyType.getBodyTypeRu();
+        } else {
+            return "Недостаточно данных";
+        }}
+
+
 }

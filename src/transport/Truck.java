@@ -1,30 +1,27 @@
 package transport;
 
+import java.util.SortedMap;
+
 public class Truck extends Car implements Competing{
-    public enum LoadCapacity{
-        N1("<3,5 тонн"),
-        N2("3,5-12 тонн"),
-        N3(">12 тонн");
-
-        public static void determineCarType (Truck car){
-            if (car.loadCapacity!=null){
-                System.out.println(car.loadCapacity.capacity);}
-            else {
-                System.out.println("Недостаточно данных по авто");
-            }
-        }
-        private String capacity;
-
-        LoadCapacity(String capacity) {
-            this.capacity = capacity;
-        }
-    }
     private LoadCapacity loadCapacity;
+    String CATEGORY = "C";
+
+    @Override
+    public String getCATEGORY() {
+        return CATEGORY;
+    }
+
     public Truck(String brand, String model, double engine_volume, LoadCapacity loadCapacity) {
         super(brand, model, engine_volume);
         this.loadCapacity = loadCapacity;
     }
 
+    public String getCapacity(){
+        if (loadCapacity!=null){
+            return loadCapacity.getCapacity();}
+        else {
+            return "Недостаточно данных";
+        }}
     public Truck(String brand, String model, double engine_volume) {
         super(brand, model, engine_volume);
     }
@@ -49,8 +46,8 @@ public class Truck extends Car implements Competing{
     }
 
     @Override
-    public void maxSpeed() {
-        System.out.println("Максимальная скорость грузового автомобиля 150 км/ч");
+    public int maxSpeed() {
+      return 150;
 
     }
 
@@ -65,7 +62,5 @@ public class Truck extends Car implements Competing{
         }}
     }
 
-    public LoadCapacity getLoadCapacity() {
-        return loadCapacity;
-    }
+
 }
