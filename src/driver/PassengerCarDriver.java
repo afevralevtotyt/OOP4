@@ -21,11 +21,8 @@ public class PassengerCarDriver extends Driver<PassengerCar> {
     }
 
     public PassengerCar getCar() {
-        return getCar();
+        return super.getCar();
     }
-
-
-
 
 
 

@@ -2,18 +2,20 @@ package sponsor;
 
 import transport.Car;
 
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 
 public class Sponsor {
     private String name;
     private int supportSumm;
-    public List<Car> sponsoredCars;
+    public Set<Car> sponsoredCars;
 
     public Sponsor(String name, int supportSumm) {
         this.name = name;
         this.supportSumm = supportSumm;
-        this.sponsoredCars =new LinkedList<>();
+        this.sponsoredCars =new HashSet<>();
     }
 
     public void addSponsoredCar(Car car){
@@ -29,11 +31,11 @@ public class Sponsor {
         return supportSumm;
     }
 
-    public List<Car> getSponsoredCars() {
+    public Set<Car> getSponsoredCars() {
         return sponsoredCars;
     }
 
-    public void sponsorLap(LinkedList<Car> list){
+    public void sponsorLap(Set<Car> list){
         System.out.println("Заезд автомобилей: ");
         list.forEach(System.out::println);
         System.out.println("проспонсирован "+this.name);

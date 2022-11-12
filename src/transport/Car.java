@@ -5,8 +5,10 @@ import sponsor.Sponsor;
 import utilits.Utilits;
 
 import javax.swing.*;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 
 public class Car {
 
@@ -15,15 +17,15 @@ public class Car {
     private final String model;
     private final double engineVolume;
     private Driver driver;
-    private List<Sponsor> sponsorList;
-    public List<Mechanic> mechanic;
+    private Set<Sponsor> sponsorList;
+    public Set<Mechanic> mechanic;
 
     public Car(String brand, String model, double engine_volume) {
         this.brand = Utilits.checkValidStringOrDefault(brand, "TOYOTA");
         this.model = Utilits.checkValidStringOrDefault(model, "default");
         engineVolume = Math.max(engine_volume, 0);
-        this.sponsorList = new LinkedList<>();
-        this.mechanic = new LinkedList<>();
+        this.sponsorList = new HashSet<>();
+        this.mechanic = new HashSet<>();
     }
 
     public void addMechanic(Mechanic mechanic){
@@ -74,11 +76,11 @@ public class Car {
         return CATEGORY;
     }
 
-    public List<Mechanic> getMechanic() {
+    public Set<Mechanic> getMechanic() {
         return mechanic;
     }
 
-    public List<Sponsor> getSponsorList() {
+    public Set<Sponsor> getSponsorList() {
         return sponsorList;
     }
 

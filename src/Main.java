@@ -112,20 +112,31 @@ public class Main {
             System.out.println(car.getDiagnosed());
         }
 
-        LinkedList<Car> list = new LinkedList<Car>(List.of(carArray));
-        list.add(new PassengerCar("Lexus", "GX300", 0.0, BodyType.SEDAN));
-        System.out.println(list.toString());
+        Set<Car> set = new HashSet<>(List.of(carArray));
+        set.add(new PassengerCar("Lexus", "GX300", 0.0, BodyType.SEDAN));
+        System.out.println(set.toString());
         Sponsor ivanSponsor = new Sponsor("Иван Гончаров", 1000000);
         Sponsor dmitrySponsor = new Sponsor("Дмитрий Курилов", 200000);
-        ivanSponsor.sponsorLap(list);
+        ivanSponsor.sponsorLap(set);
         ivanSponsor.sponsoredCars.add(lexusGX300);
         dmitrySponsor.addSponsoredCar(toyotaCorolla);
+
+        Set <Sponsor> sponsorsList = new HashSet<>();
+        sponsorsList.add(ivanSponsor);
+        sponsorsList.add(dmitrySponsor);
+        sponsorsList.add(dmitrySponsor);
+
+        System.out.println();
+        System.out.println(sponsorsList);
+        System.out.println();
+
         ivanSponsor.addSponsoredCar(toyotaCorolla);
         Mechanic aleksey = new Mechanic("Алексей", "Гайки для шушлайки", "BCD");
         Mechanic triton = new Mechanic("Тритон", "Север", "BD");
         aleksey.addCar(toyotaCorolla);
         triton.addCar(toyotaCorolla);
-        ArrayList <Driver> driverArrayList = new ArrayList<Driver>();
+
+        Set <Driver> driverArrayList = new HashSet<>();
         driverArrayList.add(sergey);
         driverArrayList.add(gosha);
         driverArrayList.add(dmitry);
@@ -138,6 +149,15 @@ public class Main {
         driverArrayList.add(alex);
         driverArrayList.add(ivan);
         driverArrayList.add(fedor);
+
+
+        Set <Mechanic> mechanicList = new HashSet<>();
+        mechanicList.add(aleksey);
+        mechanicList.add(triton);
+        System.out.println();
+        System.out.println(mechanicList);
+        System.out.println();
+        System.out.println(driverArrayList);
         getCarInfo(toyotaCorolla);
         triton.repair(toyotaCorolla);
 
@@ -156,20 +176,15 @@ public class Main {
         System.out.println(queue);
         refillQueue(queue);
         refillQueue(queue2);
-
-
-
-
-
         System.out.println(addToQueue("Fedor", queue, queue2));
         System.out.println(queue2);
         System.out.println(queue);
         removeElement(queue, queue2);
         System.out.println(queue2);
         System.out.println(queue);
+        serviceStation.addCarToList(lexusGX300);
+        serviceStation.serviceCar();
 
         example();
-       serviceStation.addCarToList(lexusGX300);
-       serviceStation.serviceCar();
 
     }}
